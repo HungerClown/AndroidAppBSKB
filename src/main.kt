@@ -45,7 +45,7 @@ fun main(){
     var atrrList = AttributeList()
     var typeOfAttr: AttributeType
     var testBool: Boolean
-    var forType: Int
+    var forType: String
     var nameOfAttr: String
     var numOfAttr: Int
     numOfAttr = readLine()!!.toInt()
@@ -55,39 +55,43 @@ fun main(){
         testBool = false
         typeOfAttr = AttributeType.values()[0]
         while (testBool == false) {
-            println("Напишите тип атрибута(1, 2 , 3, 4, 5, 6)")
-            forType = readLine()!!.toInt()
-
+            println("Напишите тип атрибута(Numbers, TrueFalse , Date, Stroka, Dict, List)")
+            forType = readLine()!!.toString()
+            try{
             when (forType) {
-                1   -> {
+                "Numbers"   -> {
                     typeOfAttr = AttributeType.values()[0]
                     testBool = true
                 }
-                2 -> {
+                "TrueFalse" -> {
                     typeOfAttr = AttributeType.values()[1]
                     testBool = true
                 }
-                3      -> {
+                "Date"      -> {
                     typeOfAttr = AttributeType.values()[2]
                     testBool = true
                 }
-                4    -> {
+                "Stroka"   -> {
                     typeOfAttr = AttributeType.values()[3]
                     testBool = true
                 }
-                5      -> {
+                "Dict"      -> {
                     typeOfAttr = AttributeType.values()[4]
                     testBool = true
                 }
-                6      -> {
+                "List"      -> {
                     typeOfAttr = AttributeType.values()[5]
                     testBool = true
                 }
             }
         }
+            catch (e: Exception){
+                println("Введено неверное значение")
+            }
         if (testBool == false) {
             println("Введено неверное значение")
         }
+    }
         AttributeList().readAttrList(numOfAttr, nameOfAttr, typeOfAttr)
 
     }
